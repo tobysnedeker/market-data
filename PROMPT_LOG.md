@@ -1,4 +1,5 @@
 **Prompt Log**
+---
 
 Prompt 1:
 *Does the Yahoo Finance API have a request parameter that restricts the returned intraday market data to only the last month?*
@@ -25,6 +26,7 @@ url.search = new URLSearchParams({
 const response = await fetch(url);
 const data = await response.json();
 ```
+
 ---
 
 Prompt 3:
@@ -42,6 +44,7 @@ Prompt 3:
 **Why:** I need to create a function that maps the data from Yahoo into the target format. Using an example JSON response from Yahoo and the provided output format, I can give precise context. I wanted to ensure the goal was clear, so I described some intermediate steps (fields to average, field to sum).
 
 **Kept:** The response generated the groupByDay helper function within marketDataRoutes.js. I reviewed each step to verify key requirements (proper date format, proper averaging/summation of target fields, rounding precision, sorting sequentially). After wiring the function into the route, I checked the resulting output format for accuracy.
+
 ---
 
 Prompt 4:
@@ -107,9 +110,18 @@ Prompt 8:
 
 ---
 
-Prompt 8:
+Prompt 9:
 *Create a simple mapping to the fields needed for the info panel. (provided info panel fields and Yahoo example response JSON as context)*
 
 **Why:** Needed another quick function that maps the JSON fields from the Yahoo response to a simple object with only the required fields for populating my info panel.
 
 **Kept:** Checked each field assignment, kept the entire helper function.
+
+---
+
+Prompt 10:
+*Write a simple Powershell script that starts two new processes. One for /api and one for /app. Both should run npm install, then start the service.*
+
+**Why:** I wanted a quick script that the review could run instead of doing each of these steps manually. I will include instructions in the README if this script isn't working as expected on the reviewer's machine.
+
+**Kept:** Checked contents of script and ran it locally. Verified it started two new terminals and ran the right commands. Opened the application to verifiy functionality. Kept the entire script.
