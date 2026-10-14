@@ -1,7 +1,7 @@
 **Deployment Instructions:**
 ---
 
-I included a Powershell script that should build and run the frontend and backend locally. Open a Powershell terminal in the root directory of the project and run:
+After cloning the repo locally, there is an included Powershell script that should build and run the frontend and backend locally. Open a Powershell terminal in the root directory of the project and run:
 ```
 ./start-dev.ps1
 ```
