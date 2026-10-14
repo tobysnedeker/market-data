@@ -18,14 +18,16 @@
   align-self: center;
   width: 70%;
   padding: 1rem;
-  border: 1px solid #292b31;
-  border-radius: 0.5rem;
-  background: #15161a;
+  border: 1px solid #2d3036;
+  border-radius: 8px;
+  background: #16181c;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 18%);
   color: #d8dbe2;
 }
 
 .info-panel h2 {
   margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
   font-size: 1rem;
 }
 
@@ -43,10 +45,14 @@
 
 .info-panel-row dt {
   color: #aeb3bf;
+  font-size: 0.875rem;
 }
 
 .info-panel-row dd {
   margin: 0;
+  color: #edf0f3;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
   text-align: right;
 }
 

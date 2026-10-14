@@ -17,9 +17,10 @@
   align-self: flex-start;
   place-items: center;
   padding: 1rem;
-  border: 1px solid #292b31;
-  border-radius: 0.75rem;
-  background: #15161a;
+  border: 1px solid #2d3036;
+  border-radius: 8px;
+  background: #16181c;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 18%);
 }
 
 .volume-chart {
@@ -30,7 +31,8 @@
   align-self: flex-start;
   place-items: center;
   padding: 1rem;
-  border: 1px solid #292b31;
-  border-radius: 0.75rem;
-  background: #15161a;
+  border: 1px solid #2d3036;
+  border-radius: 8px;
+  background: #16181c;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 18%);
 }

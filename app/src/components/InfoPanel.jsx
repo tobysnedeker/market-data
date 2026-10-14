@@ -37,7 +37,7 @@ export default function InfoPanel({ symbol, metadata }) {
 
   return (
     <div className="info-panel" aria-labelledby="info-panel-title">
-      <h2 id="info-panel-title">{symbol} overview</h2>
+      <h2 id="info-panel-title">{symbol} Overview</h2>
       <dl>
         {fields.map(({ label, value }) => (
           <div className="info-panel-row" key={label}>
