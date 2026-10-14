@@ -1,9 +1,12 @@
 import './App.css'
+import Header from './components/Header'
+import Chart from './components/Chart'
 
 function App() {
   return (
-    <main className="hello-page">
-      <h1>Hello World</h1>
+    <main>
+      <Header />
+      <Chart />
     </main>
   )
 }

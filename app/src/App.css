@@ -1,13 +1,7 @@
-.hello-page {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-}
-
-.hello-page h1 {
-  margin: 0;
-  color: #f5f5f5;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.06em;
+main {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  flex-direction: column;
+  overflow: hidden;
 }
