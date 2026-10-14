@@ -15,18 +15,21 @@ export default function Header() {
 
   return (
     <header className="top">
-      <h1>{symbol} Daily Range</h1>
-      <form onSubmit={handleSubmit} className="search">
-        <label htmlFor="symbol" className="sr">Stock symbol</label>
-        <input
-          id="symbol"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="e.g. TSLA"
-          autocomplete="off"
-        />
-        <button type="submit">Load</button>
-      </form>
+      <img className="logo" src="/logo.webp"/>
+      <div className="content">
+        <h1>{symbol} Daily Range</h1>
+        <form onSubmit={handleSubmit} className="search">
+          <label htmlFor="symbol" className="sr">Stock symbol</label>
+          <input
+            id="symbol"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="e.g. TSLA"
+            autocomplete="off"
+          />
+          <button type="submit">Load</button>
+        </form>
+      </div>
     </header>
   );
 }
