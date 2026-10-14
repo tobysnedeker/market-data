@@ -1,0 +1,57 @@
+.market-data-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 46rem) minmax(0, 1fr);
+  gap: 1rem;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.chart-page {
+  align-self: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.info-panel {
+  justify-self: right;
+  align-self: center;
+  width: 70%;
+  padding: 1rem;
+  border: 1px solid #292b31;
+  border-radius: 0.5rem;
+  background: #15161a;
+  color: #d8dbe2;
+}
+
+.info-panel h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.info-panel dl {
+  margin: 0;
+}
+
+.info-panel-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid #292b31;
+}
+
+.info-panel-row dt {
+  color: #aeb3bf;
+}
+
+.info-panel-row dd {
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .market-data-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -31,26 +31,53 @@ const sharedChartOptions = {
 const averagesChartOptions = {
   ...sharedChartOptions,
   aspectRatio: 1.75,
+  plugins: {
+    ...sharedChartOptions.plugins,
+    title: {
+      display: true,
+      text: "Daily average price range (USD)",
+      color: "#d8dbe2",
+    },
+  },
+  scales: {
+    ...sharedChartOptions.scales,
+    y: {
+      ...sharedChartOptions.scales.y,
+      title: {
+        display: true,
+        text: "Price (USD)",
+        color: "#aeb3bf",
+      },
+    },
+  },
 };
 
 const volumeChartOptions = {
   ...sharedChartOptions,
-  aspectRatio: 2.5,
+  aspectRatio: 2.25,
+  plugins: {
+    ...sharedChartOptions.plugins,
+    title: {
+      display: true,
+      text: "Daily trading volume (shares)",
+      color: "#d8dbe2",
+    },
+  },
+  scales: {
+    ...sharedChartOptions.scales,
+    y: {
+      ...sharedChartOptions.scales.y,
+      title: {
+        display: true,
+        text: "Volume (shares)",
+        color: "#aeb3bf",
+      },
+    },
+  },
 };
 
-export default function Chart() {
-  const [params] = useSearchParams();
-  const symbol = params.get("symbol") ?? "TSLA";
-  const [rows, setRows] = useState(null);
-
-  useEffect(() => {
-    setRows(null);
-    APIClient.getIntradayData(symbol).then((response) => {
-      setRows(response.data ?? response);
-    });
-  }, [symbol]);
-  
-  const chartRows = rows ?? [];
+export default function Chart({ rows }) {
+  const chartRows = rows;
   const labels = chartRows.map((row) => row.day);
 
   const averagesData = {

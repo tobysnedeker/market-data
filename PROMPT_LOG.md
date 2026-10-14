@@ -95,3 +95,21 @@ Prompt 7:
 **Why:** I'd like to reformat the bars of the averages chart to floating bars that range from the low to high average so that it is more readible. I know Chart.js should be capable of this but I want to save time searching through documentation
 
 **Kept:** The fix was small. Chart.js allows you to set bar start and bar end, so I mapped those to the low and high average for each day, instead of separate bars.
+
+---
+
+Prompt 8:
+*Suggest the simplest way I can refactor how I store and load symbol state. I want to remove it from the URL params and store it as state in App.jsx. My goal is to create a single function that calls the Yahoo API with the next symbol request that only updates the symbol and row data state if the request is a valid stock symbol. Then, I can pass the symbol and row data to Header.jsx and Chart.jsx accordingly.*
+
+**Why:** I want a more robust way of storing the state of the page. I want it in a single, overarching location so I can pass state as needed, instead of making multiple identical API calls. This also allows for better handling of invalid input, as I can catch it before updating the page's state.
+
+**Kept:** Removed the use of search parameters to store state. Removed most of the state handling from Header.jsx and Chart.jsx. Updated App.jsx to include the suggested callBack function for handling new API requests and state for the symbol and chart row data. Now the architecture is much cleaner, and global state can be passed into components as needed.
+
+---
+
+Prompt 8:
+*Create a simple mapping to the fields needed for the info panel. (provided info panel fields and Yahoo example response JSON as context)*
+
+**Why:** Needed another quick function that maps the JSON fields from the Yahoo response to a simple object with only the required fields for populating my info panel.
+
+**Kept:** Checked each field assignment, kept the entire helper function.

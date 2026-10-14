@@ -1,16 +1,12 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import "./Header.css";
 
-export default function Header() {
-  const [params, setParams] = useSearchParams();
-  const [input, setInput] = useState(params.get("symbol") ?? "TSLA");
-  const symbol = params.get("symbol") ?? "TSLA";
+export default function Header({ symbol, onLoad }) {
+  const [input, setInput] = useState(symbol);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const symbol = input.trim().toUpperCase();
-    if (symbol) setParams({ symbol });
+    onLoad(input);
   };
 
   return (
@@ -25,7 +21,7 @@ export default function Header() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="e.g. TSLA"
-            autocomplete="off"
+            autoComplete="off"
           />
           <button type="submit">Load</button>
         </form>

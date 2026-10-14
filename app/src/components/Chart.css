@@ -4,9 +4,9 @@
   min-height: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  padding-top: 3rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .averages-chart {
@@ -14,31 +14,23 @@
   display: grid;
   box-sizing: content-box;
   width: min(42rem, calc(100% - 2rem));
-  align-self: center;
+  align-self: flex-start;
   place-items: center;
   padding: 1rem;
   border: 1px solid #292b31;
   border-radius: 0.75rem;
   background: #15161a;
 }
-
-/* .averages-chart {
-  aspect-ratio: 2.5;
-} */
 
 .volume-chart {
   position: relative;
   display: grid;
   box-sizing: content-box;
   width: min(42rem, calc(100% - 2rem));
-  align-self: center;
+  align-self: flex-start;
   place-items: center;
   padding: 1rem;
   border: 1px solid #292b31;
   border-radius: 0.75rem;
   background: #15161a;
 }
-/* 
-.volume-chart {
-  aspect-ratio: 5.5;
-} */

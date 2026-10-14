@@ -6,7 +6,6 @@ const YAHOO_BASE_URL = new URL("https://query1.finance.yahoo.com/v8/finance/char
 const HEADERS = { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" }
 
 router.get('/intraday/:symbol', async (req, res) => {
-
   const url = new URL(`${YAHOO_BASE_URL}/${req.params.symbol.toUpperCase()}`);
   url.search = new URLSearchParams({
     range: "1mo",
@@ -36,10 +35,38 @@ router.get('/intraday/:symbol', async (req, res) => {
   } catch (error) {
     console.error("Error: ", error);
   }
+});
 
+router.get('/intraday/metadata/:symbol', async (req, res) => {
+  const url = new URL(`${YAHOO_BASE_URL}/${req.params.symbol.toUpperCase()}`);
+  url.search = new URLSearchParams({
+    range: "1mo",
+    interval: "15m",
+  });
 
+  try {
+    const response = await fetch(url, {
+      headers: HEADERS,
+    });
 
+    if (!response.ok) {
+      if (response.status == 404) {
+        return res.status(404).json({
+          error: `Symbol ${req.params.symbol} not found.`
+        });
+      } else {
+        return res.status(500).json({
+          error: 'Data provider error.'
+        });
+      }
+    }
 
+    const yahooResponse = await response.json();
+    return res.status(200).json(formatMetadata(yahooResponse));
+
+  } catch (error) {
+    console.error("Error: ", error);
+  }
 });
 
 export function groupByDay(yahooResponse) {
@@ -82,6 +109,28 @@ export function groupByDay(yahooResponse) {
       highAverage: round4(d.highSum / d.count),
       volume: d.volume,
     }));
+}
+
+export function formatMetadata(yahooResponse) {
+  const meta = yahooResponse?.chart?.result?.[0]?.meta;
+  if (!meta) return null;
+
+  return {
+    company: meta.longName ?? meta.shortName ?? meta.symbol,
+    exchange: meta.fullExchangeName ?? meta.exchangeName,
+    currency: meta.currency,
+    lastPrice: meta.regularMarketPrice,
+    changePercent: meta.regularMarketChangePercent,
+    dayRange: {
+      low: meta.regularMarketDayLow,
+      high: meta.regularMarketDayHigh,
+    },
+    volume: meta.regularMarketVolume,
+    fiftyTwoWeekRange: {
+      low: meta.fiftyTwoWeekLow,
+      high: meta.fiftyTwoWeekHigh,
+    },
+  };
 }
 
 export default router;
